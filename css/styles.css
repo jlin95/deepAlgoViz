@@ -2,6 +2,21 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+#nav-container {
+    z-index: 99;
+    width: 80%;
+    background-color: lightseagreen;
+    float: right;
+
+}
+
+#nav-bottom {
+    z-index: 99;
+    background-color: lightseagreen;
+    float: right;
+    height: 42px;
+}
+
 #zoomInListener, #zoomOutListener,#toggleListener, #hideListener  {
     position: absolute;
     z-index: 9999;

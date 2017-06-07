@@ -5,43 +5,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.7.11/go.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="main.js"></script>
+<!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ -->  
+ <script src="main.js"></script>
 </head>
   <body>
+
   <button id="toggleListener" onclick="toggleLayout()">Toggle Layout</button>
   <button id="hideListener">Toggle Legend</button>
   <div id="zoom-buttons">
   <button id="zoomInListener" onclick="zoomIn()"><img src="https://png.icons8.com/plus-2-math/androidL/24/" title="Zoom In" width="24" height="24"></button>
-  <button id="zoomOutListener" onclick="zoomOut()"><img src="https://png.icons8.com/minus-2-math/androidL/24/" title="Minus 2 Math" width="24" height="24"></button>
+  <button id="zoomOutListener" onclick="zoomOut()"><img src="https://png.icons8.com/minus-2-math/androidL/24/" title="Zoom Out" width="24" height="24"></button>
   </div>
-    <nav class="navbar navbar-inverse navbar-right" style="z-index: 999">
-      <div class="container-fluid" width="739px">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Basic Bot</a>
+  <nav id="nav-container">
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
         </div>
-        <ul class="nav navbar-nav ">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="faq.html">FAQs</a></li>
-        </ul>
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Search</button>
-        </form>
-      </div>
-    </nav>
+      </form>
+    </div>
+  </nav>
 
   <!-- The DIV for the Diagram needs an explicit size or else we won't see anything.
        This also adds a border to help see the edges of the viewport. -->
   <div id="myDiagramDiv" style="width: 100vw;height: 100vh; position:fixed; top:0;left:0"></div>
 
   <div id="sample">
-    <nav class="navbar-header navbar-fixed-bottom">
+    <nav id="nav-bottom" class="navbar-header navbar-fixed-bottom">
       <img src="legend.png" height="42" style="float: right"/>
     </nav>
   </div>
