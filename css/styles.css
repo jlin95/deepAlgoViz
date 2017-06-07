@@ -24,20 +24,21 @@ body {
 
 #zoom-buttons {
     position: absolute;
-    top: 323px;
-    left: 400px;
+    top: 260px;
+    left: 1200px;
+    z-index: 999999;
 }
 #zoomInListener {
     top: 323px;
 /*    left: 20px;*/
     border-color: transparent;
-    background-color: white;
+    background-color: transparent;
 }
 #zoomOutListener {
     top: 353px;
 /*    left: 20px;
 */    border-color: transparent;
-    background-color: white;
+    background-color: transparent;
 }
 
 #toggleListener {
