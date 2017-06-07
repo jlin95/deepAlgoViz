@@ -1,36 +1,43 @@
 $(document).ready(function(){
-    var $ = go.GraphObject.make; 
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
     myDiagram = $(go.Diagram, "myDiagramDiv",  // create a Diagram for the DIV HTML element
-      {//layout:"new go.layoutdeigrpah "
-      layout: $(go.LayeredDigraphLayout, {
-        layeringOption : go.LayeredDigraphLayout.LayerOptimalLinkLength,
-        direction: 0 
-      }),
-        initialContentAlignment: go.Spot.Center,  // center the content
-        "undoManager.isEnabled": true  // enable undo & redo
-      });
-    myDiagram.add($(go.Part, "Vertical", {background: "black", width: 140 }));
-
+                  {//layout:"new go.layoutdeigrpah "
+                  layout: $(go.LayeredDigraphLayout, {
+                    layeringOption : go.LayeredDigraphLayout.LayerOptimalLinkLength,
+                    direction: 0
+                  }),
+                    initialContentAlignment: go.Spot.Center,  // center the content
+                    "undoManager.isEnabled": true  // enable undo & redo
+                  });
+    //myDiagram.add($(go.Part, "Vertical", {background: "lightgray", width: 140 }));
+    // define a simple Node template
     myDiagram.nodeTemplate =
-      $(go.Node, "Auto",  // the Shape will go around the TextBlock
-        $(go.Shape, "RoundedRectangle", { strokeWidth: 0},
-          new go.Binding("fill", "color")),
+      $(go.Node, "Vertical",   // the Shape will go around the TextBlock
+        $(go.Picture, {
+          desiredSize: new go.Size(24, 24),
+          
+        }, new go.Binding("source", "path")  ),
+       
         $(go.TextBlock,
-          { margin: 8 },  // some room around the text
+          { margin: 4,
+            width: 75,
+            alignment: go.Spot.Left,
+          maxSize: new go.Size(440, Infinity), },  // some room around the text
           // TextBlock.text is bound to Node.data.key
           new go.Binding("text", "text")),
       );
+
+   
       
-      // this is the bounded rect
       myDiagram.groupTemplate=$(go.Group, 'Vertical',{
-        background: "gray",
+        background: "yellow",
        mouseHover:function(event, obj){   
         var group=obj.part;
         if(group.isSubGraphExpanded ){
         myDiagram.commandHandler.collapseSubGraph( group );
-      } else {
+      }else{
           myDiagram.commandHandler.expandSubGraph( group );
-        }
+        }//eof if
       }
        }, {//layout:"new go.layoutdeigrpah "
                   layout: $(go.LayeredDigraphLayout, {layeringOption : go.LayeredDigraphLayout.LayerOptimalLinkLength }) } , $(go.TextBlock,
@@ -38,6 +45,8 @@ $(document).ready(function(){
           // TextBlock.text is bound to Node.data.key
           new go.Binding("text", "key") ),
            $(go.Placeholder));
+
+
     // but use the default Link template, by not setting Diagram.linkTemplate
     // create the model data that will be represented by Nodes and Links
     
@@ -127,7 +136,23 @@ $(document).ready(function(){
         "lineEnd": 76
       }
     },
-
+    {
+      "key": "215_27161",
+      "calledGraphId": null,
+      "text": "tightness",
+      "description": [
+        "tightness"
+      ],
+      "category": "OfActivity",
+      "topoIndex": 43.0,
+      "forwardDepth": 1.0,
+      "backwardDepth": 1.0,
+      "codeReference": {
+        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
+        "lineStart": 76,
+        "lineEnd": 76
+      }
+    },
     {
       "key": "215_27168",
       "calledGraphId": null,
@@ -268,7 +293,23 @@ $(document).ready(function(){
         "lineEnd": 79
       }
     },
-
+    {
+      "key": "215_27182",
+      "calledGraphId": null,
+      "text": "aggression",
+      "description": [
+        "aggression"
+      ],
+      "category": "OfActivity",
+      "topoIndex": 21.0,
+      "forwardDepth": 1.0,
+      "backwardDepth": 1.0,
+      "codeReference": {
+        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
+        "lineStart": 79,
+        "lineEnd": 79
+      }
+    },
     {
       "key": "215_27189",
       "calledGraphId": null,
@@ -304,7 +345,7 @@ $(document).ready(function(){
       }
     },
     {
-      "key": "215_27201",
+      "key": "215_27201", // do not remove 
       "calledGraphId": null,
       "text": "Create a IllegalArgumentException with \"Invalid aggression setting\"",
       "description": [
@@ -870,23 +911,6 @@ $(document).ready(function(){
       "group": "215_27202"
     },
     {
-      "key": "347_27201_1461",
-      "calledGraphId": null,
-      "text": "Create a IllegalArgumentException with \"Invalid aggression setting\"",
-      "description": [
-        "Create a IllegalArgumentException with \"Invalid aggression setting\""
-      ],
-      "category": "OfOutput",
-      "topoIndex": 20.0,
-      "forwardDepth": 8.0,
-      "backwardDepth": 9.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 80,
-        "lineEnd": 80
-      }
-    },
-    {
       "key": "347_27174_1462",
       "calledGraphId": null,
       "text": "IllegalArgumentException",
@@ -921,23 +945,6 @@ $(document).ready(function(){
         "lineEnd": 77
       },
       "group": "215_27181"
-    },
-    {
-      "key": "347_27180_1464",
-      "calledGraphId": null,
-      "text": "Create a IllegalArgumentException with \"Invalid tightness setting\"",
-      "description": [
-        "Create a IllegalArgumentException with \"Invalid tightness setting\""
-      ],
-      "category": "OfOutput",
-      "topoIndex": 42.0,
-      "forwardDepth": 8.0,
-      "backwardDepth": 9.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 77,
-        "lineEnd": 77
-      }
     },
     {
       "key": "347_27174_1436_215_27181",
@@ -1029,24 +1036,7 @@ $(document).ready(function(){
       },
       "group": "215_27181"
     },
-    {
-      "key": "347_27180_1464_215_27181",
-      "calledGraphId": null,
-      "text": "Create a IllegalArgumentException with \"Invalid tightness setting\"",
-      "description": [
-        "Create a IllegalArgumentException with \"Invalid tightness setting\""
-      ],
-      "category": "OfOutput",
-      "topoIndex": 41.0,
-      "forwardDepth": 7.0,
-      "backwardDepth": 8.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 77,
-        "lineEnd": 77
-      },
-      "group": "215_27181"
-    }
+
   ],
   "linkList": [
     {
@@ -1167,14 +1157,6 @@ $(document).ready(function(){
       },
       "to": {
         "nodeIdInCurrentGraph": "215_27165"
-      }
-    },
-    {
-      "from": {
-        "nodeIdInCurrentGraph": "215_27180"
-      },
-      "to": {
-        "nodeIdInCurrentGraph": "347_27180_1464_215_27181"
       }
     },
     {
@@ -1521,22 +1503,6 @@ $(document).ready(function(){
         "nodeIdInCurrentGraph": "347_27216_1444"
       }
     },
-    {
-      "from": {
-        "nodeIdInCurrentGraph": "347_27201_1461_215_27202"
-      },
-      "to": {
-        "nodeIdInCurrentGraph": "347_27201_1461"
-      }
-    },
-    {
-      "from": {
-        "nodeIdInCurrentGraph": "347_27180_1464_215_27181"
-      },
-      "to": {
-        "nodeIdInCurrentGraph": "347_27180_1464"
-      }
-    }
   ],
   "meta": {
     "methodName": "org.ozsoft.texasholdem.bots.BasicBot.BasicBot(int, int) [Public]",
@@ -1552,6 +1518,7 @@ console.log(data);
 
 var manynodes=[];
 var manylinks=[];
+var actLinks=[];
 
 
 
@@ -1569,9 +1536,20 @@ for(var i=0; i< data.nodeList.length; i++){
 
     //manynodes.push(node1);
     //myDiagram.add(node1);
-    var node1={key:data.nodeList[i].key , text: data.nodeList[i].text, number:data.nodeList[i].topoIndex, icon:"icons/act.png",  color: "green", ind0:"red", ind1:"orange", ind2:"mediumspringgreen", isGroup: data.nodeList[i].isGroup, group:data.nodeList[i].group };
+
+
+    //if(data.nodeList[i].category!= "OfActivity"){
+    var path1="icons/act.png";
+    //console.log("path ", data.nodeList[i].category );
+    if( data.nodeList[i].category == "OfInput"){path1="icons/input.png";}else if(data.nodeList[i].category== "OfOutput"){path1="icons/output.png"}else if(data.nodeList[i].category== " OfCondition"){path1="icons/cond.png";}
+
+    var node1={key:data.nodeList[i].key , text: data.nodeList[i].text, number:data.nodeList[i].topoIndex, icon:"icons/act.png",  color: "green", ind0:"red", ind1:"orange", ind2:"mediumspringgreen", isGroup: data.nodeList[i].isGroup, group:data.nodeList[i].group, path: path1, };
     manynodes.push(node1);
+    //}
+
+     if(data.nodeList[i].category== "OfActivity"){actLinks.push( node1); }
     //myDiagram.add( node1);
+
 
 
   }//eof for
@@ -1582,13 +1560,28 @@ for(var i=0; i< data.nodeList.length; i++){
     manylinks.push(link1)
   }//eof for
 
+
+/*for(var i=0; i< data.linkList.length;i++){
+  for(var j=0 j< actLinks.length; j++){
+
+    var regNode= data.nodeList[i];
+    var actNode=actLinks[j];
+
+      if(  regNode.to.nodeIdInCurrentGraph === actNode  )
+
+  }
+}//eof outter loop
+
+*/
+
+
+
 myDiagram.model = new go.GraphLinksModel(
     manynodes,
-    manylinks
-  );
+    manylinks);
 
 
-setTimeout( function(){
+/*setTimeout( function(){
 myDiagram.nodes.each(function(node){ 
   if(node.data.text.length<9){
      node.location=node.location.copy().offset(100,100);
@@ -1600,11 +1593,7 @@ myDiagram.nodes.each(function(node){
 
 });
 
-}, 2000)//eof timout
-
-
-
-
+}, 2000)//eof timout*/
   //console.log(manynodes);
   //console.log(manylinks);
   /*myDiagram.nodeList=manynodes;
