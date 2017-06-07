@@ -12,6 +12,8 @@
   <script src="main.js"></script>
 </head>
   <body>
+  <button onclick="toggleLayout()">Toggle Layout</button>
+<button style="z-index: 999" onclick="clickme()">Hide Legend</button>
     <nav class="navbar navbar-inverse navbar-right" style="z-index: 999">
       <div class="container-fluid" width="739px">
         <div class="navbar-header">
@@ -32,16 +34,37 @@
 
   <!-- The DIV for the Diagram needs an explicit size or else we won't see anything.
        This also adds a border to help see the edges of the viewport. -->
-  <div id="myDiagramDiv" style="width: 100vw;height: 100vh; position:fixed; top:0;left:0"></div>
-<!-- <button onclick="toggleLayout()">Toggle Layout</button>
- --><button onclick="clickme()">Click to hide</button>
+  <div id="myDiagramDiv" style="width: 100vw;height: 100vh; position:fixed; top:0;left:0"></div
 
-  <div id="navEnd">
+  <div id="sample">
     <nav class="navbar-header navbar-fixed-bottom">
       <img src="legend.png" height="42" style="float: right"/>
     </nav>
   </div>
 
+<script>
+function toggleLayout() {
+    var $ = go.GraphObject.make;
+    if (myDiagram.layout instanceof go.ForceDirectedLayout) {
+      myDiagram.layout =
+        $(go.LayeredDigraphLayout,
+          { direction: 90 });
+    } else {
+      myDiagram.layout =
+$(go.LayeredDigraphLayout,
+          { direction: 0 });    }
+  
 
+}
+
+function clickMe() {
+    var x = document.getElementById('myDiagramDiv');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
   </body>
 </html>

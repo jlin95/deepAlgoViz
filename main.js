@@ -1602,29 +1602,8 @@ myDiagram.nodes.each(function(node){
 
 }, 2000)//eof timout
 
-// toggleLayout( function() {
-//     var $ = go.GraphObject.make;
-//     if (myDiagram.layout instanceof go.ForceDirectedLayout) {
-//       myDiagram.layout =
-//         $(go.LayeredDigraphLayout,
-//           { direction: 90 });
-//     } else {
-//       myDiagram.layout =
-// $(go.LayeredDigraphLayout,
-//           { direction: 0 });    }
-  
 
-// })
 
-clickMe(function() {
-    var x = document.getElementById('navEnd');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-)
 
   //console.log(manynodes);
   //console.log(manylinks);
