@@ -2,14 +2,27 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-#zoomListener, #toggleListener, #hideListener  {
+#zoomInListener, #zoomOutListener,#toggleListener, #hideListener  {
     position: absolute;
-    z-index: 10;
+    z-index: 9999;
 }
 
-#zoomListener {
-    top: 100px;
-    left: 20px;
+#zoom-buttons {
+    position: absolute;
+    top: 323px;
+    left: 400px;
+}
+#zoomInListener {
+    top: 323px;
+/*    left: 20px;*/
+    border-color: transparent;
+    background-color: white;
+}
+#zoomOutListener {
+    top: 353px;
+/*    left: 20px;
+*/    border-color: transparent;
+    background-color: white;
 }
 
 #toggleListener {

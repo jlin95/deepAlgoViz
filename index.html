@@ -13,8 +13,11 @@
 </head>
   <body>
   <button id="toggleListener" onclick="toggleLayout()">Toggle Layout</button>
-  <button id="hideListener">Hide Legend</button>
-  <button id="zoomListener" onclick="zoom()">Zoom in</button>
+  <button id="hideListener">Toggle Legend</button>
+  <div id="zoom-buttons">
+  <button id="zoomInListener" onclick="zoomIn()"><img src="https://png.icons8.com/plus-2-math/androidL/24/" title="Zoom In" width="24" height="24"></button>
+  <button id="zoomOutListener" onclick="zoomOut()"><img src="https://png.icons8.com/minus-2-math/androidL/24/" title="Minus 2 Math" width="24" height="24"></button>
+  </div>
     <nav class="navbar navbar-inverse navbar-right" style="z-index: 999">
       <div class="container-fluid" width="739px">
         <div class="navbar-header">
@@ -44,26 +47,30 @@
   </div>
 
 <script>
-document.getElementById("zoomListener").addEventListener("click", zoom);
+document.getElementById("zoomInListener").addEventListener("click", zoomIn);
+document.getElementById("zoomOutListener").addEventListener("click", zoomOut);
 document.getElementById("hideListener").addEventListener("click", clickme);
+document.getElementById("horizonalListener").addEventListener("click", toggleLayout);
 document.getElementById("toggleListener").addEventListener("click", toggleLayout);
 
-function toggleLayout() {
+function makeHorizontal() {
     var $ = go.GraphObject.make;
-    if (myDiagram.layout instanceof go.ForceDirectedLayout) {
-      myDiagram.layout =
-        $(go.LayeredDigraphLayout,
-          { direction: 90 });
+    if (myDiagram.layout = $(go.LayeredDigraphLayout, { direction: 0 })) {
+      myDiagram.layout = $(go.LayeredDigraphLayout, { direction: 90 });
     } else {
-      myDiagram.layout =
-$(go.LayeredDigraphLayout,
-          { direction: 0 });    }
+      myDiagram.layout = $(go.LayeredDigraphLayout,
+          { direction: 0 });    
+}
   
 
 }
 
-function zoom() {
+function zoomIn() {
   myDiagram.commandHandler.increaseZoom();
+}
+
+function zoomOut() {
+  myDiagram.commandHandler.decreaseZoom();
 }
 
 function clickme() {
