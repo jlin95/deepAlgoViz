@@ -260,23 +260,6 @@ $(document).ready(function(){
       "isGroup": true
     },
     {
-      "key": "215_27191",
-      "calledGraphId": null,
-      "text": "(aggression is lower than 0) or (aggression is greater than 100)",
-      "description": [
-        "(aggression is lower than 0) or (aggression is greater than 100)"
-      ],
-      "category": "OfActivity",
-      "topoIndex": 33.0,
-      "forwardDepth": 7.0,
-      "backwardDepth": 7.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 79,
-        "lineEnd": 79
-      }
-    },
-    {
       "key": "215_27185",
       "calledGraphId": null,
       "text": "aggression is lower than 0",
@@ -739,7 +722,7 @@ $(document).ready(function(){
       }
     },
     {
-      "key": "347_27185_1451",
+      "key": "347_27185_1451", // here
       "calledGraphId": null,
       "text": "aggression is lower than 0",
       "description": [
@@ -790,7 +773,7 @@ $(document).ready(function(){
       }
     },
     {
-      "key": "347_27191_1454",
+      "key": "347_27191_1454", // to point to this
       "calledGraphId": null,
       "text": "(aggression is lower than 0) or (aggression is greater than 100)",
       "description": [
@@ -1217,7 +1200,7 @@ $(document).ready(function(){
     },
     {
       "from": {
-        "nodeIdInCurrentGraph": "215_27191"
+        "nodeIdInCurrentGraph": ""
       },
       "to": {
         "nodeIdInCurrentGraph": "347_27191_1454"
@@ -1228,7 +1211,7 @@ $(document).ready(function(){
         "nodeIdInCurrentGraph": "347_27185_1451"
       },
       "to": {
-        "nodeIdInCurrentGraph": "215_27191"
+        "nodeIdInCurrentGraph": "347_27191_1454"
       }
     },
     {
@@ -1236,7 +1219,7 @@ $(document).ready(function(){
         "nodeIdInCurrentGraph": "347_27189_1453"
       },
       "to": {
-        "nodeIdInCurrentGraph": "215_27191"
+        "nodeIdInCurrentGraph": "347_27191_1454"
       }
     },
     {
@@ -1511,10 +1494,9 @@ $(document).ready(function(){
       "lineStart": 75,
       "lineEnd": 84
     },
-    "title": "How to create basic bot?"
+    "title": "Flow of a Basic Bot"
   }
 };
-console.log(data);
 
 var manynodes=[];
 var manylinks=[];
