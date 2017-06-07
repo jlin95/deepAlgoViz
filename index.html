@@ -17,7 +17,8 @@
 </head>
   <body>
 
-  <button id="toggleListener" onclick="toggleLayout()">Toggle Layout</button>
+  <button id="toggleListener" onclick="toggleLayout()">Horizontal Layout</button>
+  <button id="toggle2Listener" onclick="toggle2Layout()">Vertical Layout</button>
   <button id="hideListener">Toggle Legend</button>
   <div id="zoom-buttons">
   <button id="zoomInListener" onclick="zoomIn()"><i class="material-icons">zoom_in</i></button>
@@ -49,20 +50,42 @@
 document.getElementById("zoomInListener").addEventListener("click", zoomIn);
 document.getElementById("zoomOutListener").addEventListener("click", zoomOut);
 document.getElementById("hideListener").addEventListener("click", clickme);
-document.getElementById("horizonalListener").addEventListener("click", toggleLayout);
 document.getElementById("toggleListener").addEventListener("click", toggleLayout);
+document.getElementById("toggle2Listener").addEventListener("click", toggle2Layout);
 
-function makeHorizontal() {
+
+
+function toggleLayout() {
     var $ = go.GraphObject.make;
-    if (myDiagram.layout = $(go.LayeredDigraphLayout, { direction: 0 })) {
-      myDiagram.layout = $(go.LayeredDigraphLayout, { direction: 90 });
+    if (myDiagram.layout instanceof go.LayeredDigraphLayout) {
+      myDiagram.layout =
+        $(go.LayeredDigraphLayout,
+          { direction: 90 });
     } else {
-      myDiagram.layout = $(go.LayeredDigraphLayout,
-          { direction: 0 });    
-}
-  
+      myDiagram.layout =
+        $(go.ForceDirectedLayout,
+          {
+            defaultSpringLength: 30,
+            defaultElectricalCharge: 100
+          });
+    }
+  }
 
-}
+function toggle2Layout() {
+    var $ = go.GraphObject.make;
+    if (myDiagram.layout instanceof go.LayeredDigraphLayout) {
+      myDiagram.layout =
+        $(go.LayeredDigraphLayout,
+          { direction: 0 });
+    } else {
+      myDiagram.layout =
+        $(go.ForceDirectedLayout,
+          {
+            defaultSpringLength: 30,
+            defaultElectricalCharge: 100
+          });
+    }
+  }
 
 function zoomIn() {
   myDiagram.commandHandler.increaseZoom();

@@ -87,7 +87,7 @@ $(document).ready(function(){
     {
       "key": "215_27181",
       "calledGraphId": null,
-      "text": "if (tightness is lower than 0) or (tightness is greater than 100)",
+      "text": "to remove? if (tightness is lower than 0) or (tightness is greater than 100)",
       "description": [
         "if (tightness is lower than 0) or (tightness is greater than 100)"
       ],
@@ -101,23 +101,6 @@ $(document).ready(function(){
         "lineEnd": 78
       },
       "isGroup": true
-    },
-    {
-      "key": "215_27170",
-      "calledGraphId": null,
-      "text": "(tightness is lower than 0) or (tightness is greater than 100)",
-      "description": [
-        "(tightness is lower than 0) or (tightness is greater than 100)"
-      ],
-      "category": "OfActivity",
-      "topoIndex": 56.0,
-      "forwardDepth": 7.0,
-      "backwardDepth": 7.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 76,
-        "lineEnd": 76
-      }
     },
     {
       "key": "215_27164",
@@ -690,7 +673,7 @@ $(document).ready(function(){
     {
       "key": "347_27170_1449",
       "calledGraphId": null,
-      "text": "(tightness is lower than 0) or (tightness is greater than 100)",
+      "text": " (tightness is lower than 0) or (tightness is greater than 100)",
       "description": [
         "(tightness is lower than 0) or (tightness is greater than 100)"
       ],
@@ -1040,7 +1023,7 @@ $(document).ready(function(){
     },
     {
       "from": {
-        "nodeIdInCurrentGraph": "215_27170"
+        "nodeIdInCurrentGraph": "347_27164_1446"
       },
       "to": {
         "nodeIdInCurrentGraph": "347_27170_1449"
@@ -1048,18 +1031,10 @@ $(document).ready(function(){
     },
     {
       "from": {
-        "nodeIdInCurrentGraph": "347_27164_1446"
-      },
-      "to": {
-        "nodeIdInCurrentGraph": "215_27170"
-      }
-    },
-    {
-      "from": {
         "nodeIdInCurrentGraph": "347_27168_1448"
       },
       "to": {
-        "nodeIdInCurrentGraph": "215_27170"
+        "nodeIdInCurrentGraph": "347_27170_1449"
       }
     },
     {
