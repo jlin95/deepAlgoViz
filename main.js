@@ -1,20 +1,19 @@
 $(document).ready(function(){
     var $ = go.GraphObject.make; 
     myDiagram = $(go.Diagram, "myDiagramDiv",  // create a Diagram for the DIV HTML element
-                  {//layout:"new go.layoutdeigrpah "
-                  layout: $(go.LayeredDigraphLayout, {
-                    layeringOption : go.LayeredDigraphLayout.LayerOptimalLinkLength,
-                    direction: 90 
-                  }),
-                    initialContentAlignment: go.Spot.Center,  // center the content
-                    "undoManager.isEnabled": true  // enable undo & redo
-                  });
-    myDiagram.add($(go.Part, "Vertical", {background: "lightgray", width: 140 }));
-    // define a simple Node template
+      {//layout:"new go.layoutdeigrpah "
+      layout: $(go.LayeredDigraphLayout, {
+        layeringOption : go.LayeredDigraphLayout.LayerOptimalLinkLength,
+        direction: 0 
+      }),
+        initialContentAlignment: go.Spot.Center,  // center the content
+        "undoManager.isEnabled": true  // enable undo & redo
+      });
+    myDiagram.add($(go.Part, "Vertical", {background: "black", width: 140 }));
+
     myDiagram.nodeTemplate =
       $(go.Node, "Auto",  // the Shape will go around the TextBlock
         $(go.Shape, "RoundedRectangle", { strokeWidth: 0},
-          // Shape.fill is bound to Node.data.color
           new go.Binding("fill", "color")),
         $(go.TextBlock,
           { margin: 8 },  // some room around the text
@@ -22,15 +21,16 @@ $(document).ready(function(){
           new go.Binding("text", "text")),
       );
       
+      // this is the bounded rect
       myDiagram.groupTemplate=$(go.Group, 'Vertical',{
-        background: "yellow",
+        background: "gray",
        mouseHover:function(event, obj){   
         var group=obj.part;
         if(group.isSubGraphExpanded ){
         myDiagram.commandHandler.collapseSubGraph( group );
-      }else{
+      } else {
           myDiagram.commandHandler.expandSubGraph( group );
-        }//eof if
+        }
       }
        }, {//layout:"new go.layoutdeigrpah "
                   layout: $(go.LayeredDigraphLayout, {layeringOption : go.LayeredDigraphLayout.LayerOptimalLinkLength }) } , $(go.TextBlock,
@@ -127,23 +127,7 @@ $(document).ready(function(){
         "lineEnd": 76
       }
     },
-    {
-      "key": "215_27161",
-      "calledGraphId": null,
-      "text": "tightness",
-      "description": [
-        "tightness"
-      ],
-      "category": "OfActivity",
-      "topoIndex": 43.0,
-      "forwardDepth": 1.0,
-      "backwardDepth": 1.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 76,
-        "lineEnd": 76
-      }
-    },
+
     {
       "key": "215_27168",
       "calledGraphId": null,
@@ -284,23 +268,7 @@ $(document).ready(function(){
         "lineEnd": 79
       }
     },
-    {
-      "key": "215_27182",
-      "calledGraphId": null,
-      "text": "aggression",
-      "description": [
-        "aggression"
-      ],
-      "category": "OfActivity",
-      "topoIndex": 21.0,
-      "forwardDepth": 1.0,
-      "backwardDepth": 1.0,
-      "codeReference": {
-        "fileName": "ozsoft/texasholdem/bots/BasicBot.java",
-        "lineStart": 79,
-        "lineEnd": 79
-      }
-    },
+
     {
       "key": "215_27189",
       "calledGraphId": null,
@@ -1616,7 +1584,8 @@ for(var i=0; i< data.nodeList.length; i++){
 
 myDiagram.model = new go.GraphLinksModel(
     manynodes,
-    manylinks);
+    manylinks
+  );
 
 
 setTimeout( function(){
@@ -1632,6 +1601,31 @@ myDiagram.nodes.each(function(node){
 });
 
 }, 2000)//eof timout
+
+// toggleLayout( function() {
+//     var $ = go.GraphObject.make;
+//     if (myDiagram.layout instanceof go.ForceDirectedLayout) {
+//       myDiagram.layout =
+//         $(go.LayeredDigraphLayout,
+//           { direction: 90 });
+//     } else {
+//       myDiagram.layout =
+// $(go.LayeredDigraphLayout,
+//           { direction: 0 });    }
+  
+
+// })
+
+clickMe(function() {
+    var x = document.getElementById('navEnd');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+)
+
   //console.log(manynodes);
   //console.log(manylinks);
   /*myDiagram.nodeList=manynodes;
