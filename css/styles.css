@@ -2,6 +2,33 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+#zoomListener, #toggleListener, #hideListener  {
+    position: absolute;
+    z-index: 10;
+}
+
+#zoomListener {
+    top: 100px;
+    left: 20px;
+}
+
+#toggleListener {
+    top: 150px;
+    left: 20px;
+}
+
+#hideListener {
+    top: 250px;
+    left: 20px;
+
+}
+
+#sample {
+    display: block;
+}
+
+
+
 .sidenav {
     height: 100%;
     width: 0;

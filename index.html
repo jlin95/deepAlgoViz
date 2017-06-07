@@ -12,8 +12,9 @@
   <script src="main.js"></script>
 </head>
   <body>
-  <button onclick="toggleLayout()">Toggle Layout</button>
-<button style="z-index: 999" onclick="clickme()">Hide Legend</button>
+  <button id="toggleListener" onclick="toggleLayout()">Toggle Layout</button>
+  <button id="hideListener">Hide Legend</button>
+  <button id="zoomListener" onclick="zoom()">Zoom in</button>
     <nav class="navbar navbar-inverse navbar-right" style="z-index: 999">
       <div class="container-fluid" width="739px">
         <div class="navbar-header">
@@ -34,7 +35,7 @@
 
   <!-- The DIV for the Diagram needs an explicit size or else we won't see anything.
        This also adds a border to help see the edges of the viewport. -->
-  <div id="myDiagramDiv" style="width: 100vw;height: 100vh; position:fixed; top:0;left:0"></div
+  <div id="myDiagramDiv" style="width: 100vw;height: 100vh; position:fixed; top:0;left:0"></div>
 
   <div id="sample">
     <nav class="navbar-header navbar-fixed-bottom">
@@ -43,6 +44,10 @@
   </div>
 
 <script>
+document.getElementById("zoomListener").addEventListener("click", zoom);
+document.getElementById("hideListener").addEventListener("click", clickme);
+document.getElementById("toggleListener").addEventListener("click", toggleLayout);
+
 function toggleLayout() {
     var $ = go.GraphObject.make;
     if (myDiagram.layout instanceof go.ForceDirectedLayout) {
@@ -57,8 +62,12 @@ $(go.LayeredDigraphLayout,
 
 }
 
-function clickMe() {
-    var x = document.getElementById('myDiagramDiv');
+function zoom() {
+  myDiagram.commandHandler.increaseZoom();
+}
+
+function clickme() {
+    var x = document.getElementById('sample');
     if (x.style.display === 'none') {
         x.style.display = 'block';
     } else {
